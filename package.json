@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "typed.js": "^2.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  }
+}
