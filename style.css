@@ -425,7 +425,7 @@ input::placeholder{
   }
   .InputContainer{
     height: 50px;
-    width: 90%;
+    width: 95%;
   }
   .Search{
     height: 30px;
@@ -433,6 +433,10 @@ input::placeholder{
   .button{
     height: 30px;
     width: 30px;
+    margin-left: 5px;
+  }
+  .Search{
+      width: 75%;
   }
   .chat-body .bot .massage-text{
     margin-left: 8px;

@@ -131,11 +131,12 @@ const generate_reponse = async (incomingMassage_div) => {
   try {
     const res = await fetch(url, resoption);
     const data = await res.json();
-    const apiResponse = data.candidates[0].content.parts[0].text.trim();
-    msg_Element.innerHTML = apiResponse;
+    const apiResponse = data.candidates[0].content.parts[0].text.replace(/\*/g, '').trim();
+    msg_Element.textContent = apiResponse;
 
     typingEffect(apiResponse, msg_Element, incomingMassage_div);
     if (!res.ok) throw new error(data.error.contents);
+  
   } catch (error) {
     console.log(error);
   }
@@ -174,6 +175,9 @@ btn.addEventListener("click", () => {
   addPrompt(val);
   input.value = " ";
   Sentence.classList.add("hide");
+  Sentence.remove();
+  let cursor = document.querySelector(".typed-cursor");
+  cursor.remove();
 });
 
 function addPrompt(inpval) {
@@ -271,7 +275,7 @@ gsap.from("h1 .right", {
  setTimeout(() =>{
 
    var typed = new Typed(".sentences", {
-     strings: ["I am a LLM","Where Knoladge Begins", "Created By Google","Coded By Md Jahid","See Some Quotes.","Be Yourself;Everyone Else is Already Taken","The Hardest Choices Require The Strongest Wills","The Toughest Climbs Have The Best Views"],
+     strings: ["I am a LLM","Where Knoladge Begins", "Created By Google","Coded By Md Jahid","See Some Quotes.","Be Yourself Everyone Else is Already Taken","The Hardest Choices Require The Strongest Wills","The Toughest Climbs Have The Best Views"],
      typeSpeed:150,
      backSpeed:70,
      loop:true,
