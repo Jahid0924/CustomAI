@@ -12,6 +12,7 @@ let newChat = document.querySelector(".new");
 let cancel = document.querySelector(".cancel")
 let mainTexts = document.querySelector(".massage");
 let menuOpen2 = document.querySelector(".open2");
+
 //media quary
 const mediaQuery = window.matchMedia("(max-width: 500px)");
 
@@ -103,6 +104,7 @@ const typingEffect = (text, msg_Element, incomingMassage_div) => {
       incomingMassage_div.classList.remove("spinner");
       scroll_By();
     } else {
+      
       clearInterval(typing);
     }
   }, 40);
@@ -131,24 +133,24 @@ const generate_reponse = async (incomingMassage_div) => {
   try {
     const res = await fetch(url, resoption);
     const data = await res.json();
-    const apiResponse = data.candidates[0].content.parts[0].text.replace(/\*/g, '').trim();
-    msg_Element.textContent = apiResponse;
-
-    typingEffect(apiResponse, msg_Element, incomingMassage_div);
-    if (!res.ok) throw new error(data.error.contents);
-  
-  } catch (error) {
+    const apiResponse = (data.candidates[0].content.parts[0].text.replace(/\*/g, '').trim());
+      msg_Element.innerHTML  = apiResponse;
+      typingEffect(apiResponse, msg_Element, incomingMassage_div);
+      if (!res.ok) throw new error(data.error.contents);
+    } catch (error) {
     console.log(error);
   }
 };
+
+
+
 
 const handle_userMassage = (value) => {
   user_data.massage = value.trim();
   value = " ";
   const msg_content = `<div class="massage-text"></div>`;
   const outgoingMassage_div = create_msgElement(msg_content, "user");
-  outgoingMassage_div.querySelector(".massage-text").textContent =
-    user_data.massage;
+  outgoingMassage_div.querySelector(".massage-text").textContent =user_data.massage;
   chat.appendChild(outgoingMassage_div);
   scroll_By();
   setTimeout(() => {
@@ -164,7 +166,7 @@ const handle_userMassage = (value) => {
     const incomingMassage_div = create_msgElement(msg_content, "bot");
     chat.appendChild(incomingMassage_div);
     generate_reponse(incomingMassage_div);
-
+    
     scroll_By();
   }, 1000);
 };
@@ -228,11 +230,11 @@ function onLanguageChange() {
 }
 const pouUp = document.getElementById("popup-massage");
 const poptxt = document.querySelector(".pop-up");
-pouUp.addEventListener("click", () => {
+startButton.addEventListener("click", () => {
   poptxt.classList.remove("hide");
   setTimeout(() => {
     poptxt.classList.add("hide");
-  }, 2000);
+  }, 4000);
 });
 
 //Gsap-cdn
@@ -270,6 +272,21 @@ gsap.from("h1 .right", {
   delay: 0.5,
   stagger: -0.15,
 });
+let inpcontainer = document.querySelector(".InputContainer")
+gsap.from(inpcontainer,{
+  y:20,
+  opacity:0,
+  duration:0.8,
+  delay:0.5,
+  stagger: 0.15,
+})
+gsap.from(newChat,{
+  x:20,
+  opacity:0,
+  duration:0.9,
+  delay:0.5,
+  stagger:0.15,
+})
 
 //typing
  setTimeout(() =>{

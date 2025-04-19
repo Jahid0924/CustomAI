@@ -49,6 +49,9 @@ body {
   right: 0;
   bottom: 0;
 }
+h1{
+  font-size: 4rem;
+}
 .pop-up{
   position: absolute;
   top: 70%;
@@ -162,7 +165,7 @@ body {
   justify-content: space-around;
   background: linear-gradient(
     to bottom,
-    rgb(227, 213, 255),
+    rgb(81 53 137),
     rgb(255, 231, 231)
   );
   border-radius: 25px;
@@ -282,7 +285,8 @@ body {
   padding: 15px 20px;
   margin: 15px;
   margin-left: 50px;
-  
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .chat-body .user {
