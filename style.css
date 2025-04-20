@@ -10,32 +10,26 @@ body {
 
   /*SQUARE
   /* background-image: repeating-linear-gradient(45deg, rgba(120, 88, 196, 0.1) 0px, rgba(120, 88, 196, 0.1) 1px, transparent 1px, transparent 11px, rgba(120, 88, 196, 0.1) 11px, rgba(120, 88, 196, 0.1) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(0deg, rgba(120, 88, 196, 0.1) 0px, rgba(120, 88, 196, 0.1) 1px, transparent 1px, transparent 11px, rgba(120, 88, 196, 0.1) 11px, rgba(120, 88, 196, 0.1) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(135deg, rgba(120, 88, 196, 0.1) 0px, rgba(120, 88, 196, 0.1) 1px, transparent 1px, transparent 11px, rgba(120, 88, 196, 0.1) 11px, rgba(120, 88, 196, 0.1) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(90deg, rgba(120, 88, 196, 0.1) 0px, rgba(120, 88, 196, 0.1) 1px, transparent 1px, transparent 11px, rgba(120, 88, 196, 0.1) 11px, rgba(120, 88, 196, 0.1) 12px, transparent 12px, transparent 32px), linear-gradient(90deg, rgb(17, 17, 17), rgb(5, 12, 19)); */
-  background-image: repeating-linear-gradient(
-      48deg,
+  background-image: repeating-linear-gradient(48deg,
       rgb(0, 0, 0) 0px,
       rgb(0, 0, 0) 27px,
       transparent 27px,
-      transparent 30px
-    ),
-    repeating-linear-gradient(
-      352deg,
+      transparent 30px),
+    repeating-linear-gradient(352deg,
       rgb(0, 0, 0) 0px,
       rgb(0, 0, 0) 27px,
       transparent 27px,
-      transparent 30px
-    ),
-    repeating-linear-gradient(
-      30deg,
+      transparent 30px),
+    repeating-linear-gradient(30deg,
       rgb(0, 0, 0) 0px,
       rgb(0, 0, 0) 27px,
       transparent 27px,
-      transparent 30px
-    ),
+      transparent 30px),
     linear-gradient(90deg, rgb(14, 172, 245), rgb(129, 60, 165));
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .main {
@@ -49,10 +43,12 @@ body {
   right: 0;
   bottom: 0;
 }
-h1{
+
+h1 {
   font-size: 4rem;
 }
-.pop-up{
+
+.pop-up {
   position: absolute;
   top: 70%;
   left: 50%;
@@ -70,15 +66,16 @@ h1{
 #sidebar {
   box-sizing: border-box;
   height: 100vh;
-  
-  background-image: radial-gradient(circle at 84% 82%, rgba(124, 124, 124, 0.03) 0%, rgba(217, 217, 217,0.03) 21%,transparent 21%, transparent 100%),radial-gradient(circle at 75% 56%, rgba(3, 3, 3,0.03) 0%, rgba(3, 3, 3,0.03) 30%,transparent 30%, transparent 100%),radial-gradient(circle at 74% 53%, rgba(83, 83, 83, 0.03) 0%, rgba(153, 153, 153,0.03) 95%,transparent 95%, transparent 100%),radial-gradient(circle at 86% 43%, rgba(45, 45, 45, 0.03) 0%, rgba(68, 67, 67, 0.03) 83%,transparent 83%, transparent 100%),radial-gradient(circle at 64% 88%, rgba(43, 42, 42, 0.03) 0%, rgba(65, 65, 65, 0.03) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 73% 77%, rgba(205, 205, 205,0.03) 0%, rgba(53, 53, 53, 0) 18%,transparent 18%, transparent 100%),radial-gradient(circle at 57% 51%, rgba(161, 161, 161,0.03) 0%, rgba(57, 56, 56, 0.03) 64%,transparent 64%, transparent 100%),radial-gradient(circle at 40% 84%, rgba(68, 68, 68, 0.03) 0%, rgba(46, 46, 46, 0) 14%,transparent 14%, transparent 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
+
+  background-image: radial-gradient(circle at 84% 82%, rgba(124, 124, 124, 0.03) 0%, rgba(217, 217, 217, 0.03) 21%, transparent 21%, transparent 100%), radial-gradient(circle at 75% 56%, rgba(3, 3, 3, 0.03) 0%, rgba(3, 3, 3, 0.03) 30%, transparent 30%, transparent 100%), radial-gradient(circle at 74% 53%, rgba(83, 83, 83, 0.03) 0%, rgba(153, 153, 153, 0.03) 95%, transparent 95%, transparent 100%), radial-gradient(circle at 86% 43%, rgba(45, 45, 45, 0.03) 0%, rgba(68, 67, 67, 0.03) 83%, transparent 83%, transparent 100%), radial-gradient(circle at 64% 88%, rgba(43, 42, 42, 0.03) 0%, rgba(65, 65, 65, 0.03) 2%, transparent 2%, transparent 100%), radial-gradient(circle at 73% 77%, rgba(205, 205, 205, 0.03) 0%, rgba(53, 53, 53, 0) 18%, transparent 18%, transparent 100%), radial-gradient(circle at 57% 51%, rgba(161, 161, 161, 0.03) 0%, rgba(57, 56, 56, 0.03) 64%, transparent 64%, transparent 100%), radial-gradient(circle at 40% 84%, rgba(68, 68, 68, 0.03) 0%, rgba(46, 46, 46, 0) 14%, transparent 14%, transparent 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
   position: sticky;
   top: 0;
   border-radius: 0 4px 4px 0;
   border-right: 2px solid rgb(62 69 75);
   overflow: hidden;
 }
-.sidenav{
+
+.sidenav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -86,12 +83,13 @@ h1{
   width: 100%;
 
 }
-.close{
+
+.close {
   padding: 5px;
   overflow: hidden;
 }
 
-.Toggle_button{
+.Toggle_button {
   height: 30px;
   width: 30px;
   display: flex;
@@ -102,7 +100,8 @@ h1{
   margin: 10px;
   cursor: pointer;
 }
-.cancel{
+
+.cancel {
   height: 30px;
   width: 30px;
   display: flex;
@@ -113,16 +112,18 @@ h1{
   margin: 10px;
   cursor: pointer;
 }
-#history{
-  background-image: radial-gradient(circle at 84% 82%, rgba(124, 124, 124, 0.03) 0%, rgba(217, 217, 217,0.03) 21%,transparent 21%, transparent 100%),radial-gradient(circle at 75% 56%, rgba(3, 3, 3,0.03) 0%, rgba(3, 3, 3,0.03) 30%,transparent 30%, transparent 100%),radial-gradient(circle at 74% 53%, rgba(83, 83, 83, 0.03) 0%, rgba(153, 153, 153,0.03) 95%,transparent 95%, transparent 100%),radial-gradient(circle at 86% 43%, rgba(45, 45, 45, 0.03) 0%, rgba(68, 67, 67, 0.03) 83%,transparent 83%, transparent 100%),radial-gradient(circle at 64% 88%, rgba(43, 42, 42, 0.03) 0%, rgba(65, 65, 65, 0.03) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 73% 77%, rgba(205, 205, 205,0.03) 0%, rgba(53, 53, 53, 0) 18%,transparent 18%, transparent 100%),radial-gradient(circle at 57% 51%, rgba(161, 161, 161,0.03) 0%, rgba(57, 56, 56, 0.03) 64%,transparent 64%, transparent 100%),radial-gradient(circle at 40% 84%, rgba(68, 68, 68, 0.03) 0%, rgba(46, 46, 46, 0) 14%,transparent 14%, transparent 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
+
+#history {
+  background-image: radial-gradient(circle at 84% 82%, rgba(124, 124, 124, 0.03) 0%, rgba(217, 217, 217, 0.03) 21%, transparent 21%, transparent 100%), radial-gradient(circle at 75% 56%, rgba(3, 3, 3, 0.03) 0%, rgba(3, 3, 3, 0.03) 30%, transparent 30%, transparent 100%), radial-gradient(circle at 74% 53%, rgba(83, 83, 83, 0.03) 0%, rgba(153, 153, 153, 0.03) 95%, transparent 95%, transparent 100%), radial-gradient(circle at 86% 43%, rgba(45, 45, 45, 0.03) 0%, rgba(68, 67, 67, 0.03) 83%, transparent 83%, transparent 100%), radial-gradient(circle at 64% 88%, rgba(43, 42, 42, 0.03) 0%, rgba(65, 65, 65, 0.03) 2%, transparent 2%, transparent 100%), radial-gradient(circle at 73% 77%, rgba(205, 205, 205, 0.03) 0%, rgba(53, 53, 53, 0) 18%, transparent 18%, transparent 100%), radial-gradient(circle at 57% 51%, rgba(161, 161, 161, 0.03) 0%, rgba(57, 56, 56, 0.03) 64%, transparent 64%, transparent 100%), radial-gradient(circle at 40% 84%, rgba(68, 68, 68, 0.03) 0%, rgba(46, 46, 46, 0) 14%, transparent 14%, transparent 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
   height: 90%;
   width: 99%;
   margin-top: 30px;
 }
-.prompt{
+
+.prompt {
   height: auto;
   width: 90%;
-  background-color:rgba(171, 171, 171,0.05);
+  background-color: rgba(171, 171, 171, 0.05);
   color: #fff;
   text-align: center;
   padding: 4px;
@@ -139,7 +140,8 @@ h1{
 .area {
   width: 99%;
 }
-.pos{
+
+.pos {
   position: relative;
   top: 50%;
   left: 50%;
@@ -163,11 +165,9 @@ h1{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: linear-gradient(
-    to bottom,
-    rgb(81 53 137),
-    rgb(255, 231, 231)
-  );
+  background: linear-gradient(to bottom,
+      rgb(81 53 137),
+      rgb(255, 231, 231));
   border-radius: 25px;
   overflow: hidden;
   cursor: pointer;
@@ -222,7 +222,8 @@ h1{
   align-items: center;
   justify-content: center;
 }
-.open{
+
+.open {
   position: absolute;
   background-color: transparent;
   border: none;
@@ -235,7 +236,8 @@ h1{
   margin: 10px;
   cursor: pointer;
 }
-.open2{
+
+.open2 {
   position: absolute;
   background-color: transparent;
   border: none;
@@ -248,7 +250,8 @@ h1{
   margin: 10px;
   cursor: pointer;
 }
-.new{
+
+.new {
   position: absolute;
   right: 20px;
   background-color: transparent;
@@ -263,7 +266,7 @@ h1{
 }
 
 .sentences {
-  background-image: linear-gradient(16deg,#4b90ff,#ff5546);
+  background-image: linear-gradient(16deg, #4b90ff, #ff5546);
   color: transparent;
   background-clip: text;
   text-align: center;
@@ -302,10 +305,12 @@ h1{
   border-radius: 3px 15px 15px 15px;
   margin-right: 0px;
 }
-.chat-body .bot{
+
+.chat-body .bot {
   margin-right: 15px;
 }
-p{
+
+p {
   margin-left: 7px;
   font-weight: 500;
 }
@@ -318,7 +323,7 @@ p{
   transform-style: preserve-3d;
 }
 
-.spinner > div {
+.spinner>div {
   background-color: rgba(0, 77, 255, 0.2);
   height: 100%;
   position: absolute;
@@ -385,7 +390,8 @@ p{
   overflow: hidden;
   position: relative;
 }
-#voice{
+
+#voice {
   height: 30px;
   width: 30px;
   display: flex;
@@ -395,7 +401,8 @@ p{
   border: none;
   cursor: pointer;
 }
-#voice svg{
+
+#voice svg {
   height: 20px;
   width: 20px;
 }
@@ -408,42 +415,108 @@ p{
 .svgIcon path {
   fill: white;
 }
-.menu{
+
+.menu {
   height: 25px;
   width: 25px;
 }
-input::placeholder{
+
+input::placeholder {
   color: #09000e;
   font-weight: 500;
 }
 
-@media (max-width: 500px){
-  .sentences{
+.file-uploader-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.file-uploader-box img {
+  position: absolute;
+  height: 95%;
+  width: 95%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#file-uploader {
+  background-color: transparent;
+  border: none;
+}
+
+#file-uploader svg {
+  height: 23px;
+  width: 23px;
+}
+
+.cancel-Upload svg {
+  height: 20px;
+  width: 20px;
+}
+
+.file-uploader-box .cancel-Upload {
+  height: 95%;
+  width: 95%;
+  display: none;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  /* position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); */
+}
+
+.uploaded:hover .cancel-Upload {
+  display: block;
+  z-index: 3;
+}
+
+
+@media (max-width: 500px) {
+  .sentences {
     height: auto;
     font-size: 3rem;
     font-weight: 400;
   }
-  
-  .main{
+
+  .main {
     width: 95%;
   }
-  .InputContainer{
+
+  .InputContainer {
     height: 50px;
     width: 95%;
   }
-  .Search{
+
+  .Search {
     height: 30px;
   }
-  .button{
+
+  .button {
     height: 30px;
     width: 30px;
     margin-left: 5px;
   }
-  .Search{
-      width: 75%;
+
+  .Search {
+    width: 75%;
   }
-  .chat-body .bot .massage-text{
+
+  .chat-body .bot .massage-text {
     margin-left: 8px;
+  }
+
+  h1 {
+    font-size: 3em;
   }
 }
 
+button {
+  cursor: pointer;
+}

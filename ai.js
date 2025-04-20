@@ -12,7 +12,9 @@ let newChat = document.querySelector(".new");
 let cancel = document.querySelector(".cancel")
 let mainTexts = document.querySelector(".massage");
 let menuOpen2 = document.querySelector(".open2");
-
+let fileinput = document.querySelector("#file-input");
+let fileBox = document.querySelector(".file-uploader-box");
+let userImg = fileBox.querySelector("img");
 //media quary
 const mediaQuery = window.matchMedia("(max-width: 500px)");
 
@@ -22,22 +24,22 @@ function handleScreenChange(e) {
     sidebar.style.width = "0px";
     Closebtn.classList.add("hide");
     menuOpen2.classList.remove("hide")
-    menuOpen2.addEventListener("click", () =>{
-          cancel.classList.remove("hide");
-          menuOpen2.classList.add("hide");
-          sidebar.style.width = "70%";
-        sidebar.style.transition = "300ms ease-in-out";
-        sidebar.style.zIndex ="2";
-        chatHistory.style.marginLeft = "5px";
+    menuOpen2.addEventListener("click", () => {
+      cancel.classList.remove("hide");
+      menuOpen2.classList.add("hide");
+      sidebar.style.width = "70%";
+      sidebar.style.transition = "300ms ease-in-out";
+      sidebar.style.zIndex = "2";
+      chatHistory.style.marginLeft = "5px";
     })
 
-    cancel.addEventListener("click", () =>{
+    cancel.addEventListener("click", () => {
       cancel.classList.add("hide");
       menuOpen2.classList.remove("hide");
       sidebar.style.width = "0px";
-    sidebar.style.transition = "300ms ease-in-out";
-    
-})
+      sidebar.style.transition = "300ms ease-in-out";
+
+    })
   } else {
     // Screen is larger than 
     sidebar.style.width = "15%";
@@ -102,9 +104,10 @@ const typingEffect = (text, msg_Element, incomingMassage_div) => {
     if (wordIdx < words.length) {
       msg_Element.textContent += (wordIdx === 0 ? "" : " ") + words[wordIdx++];
       incomingMassage_div.classList.remove("spinner");
+      user_data.file = {};
       scroll_By();
     } else {
-      
+
       clearInterval(typing);
     }
   }, 40);
@@ -124,7 +127,9 @@ const generate_reponse = async (incomingMassage_div) => {
           parts: [
             {
               text: user_data.massage,
-            },
+            }, ...(user_data.file.data ? [{ inline_data: user_data.file }] :
+              []
+            )
           ],
         },
       ],
@@ -134,10 +139,10 @@ const generate_reponse = async (incomingMassage_div) => {
     const res = await fetch(url, resoption);
     const data = await res.json();
     const apiResponse = (data.candidates[0].content.parts[0].text.replace(/\*/g, '').trim());
-      msg_Element.innerHTML  = apiResponse;
-      typingEffect(apiResponse, msg_Element, incomingMassage_div);
-      if (!res.ok) throw new error(data.error.contents);
-    } catch (error) {
+    msg_Element.innerHTML = apiResponse;
+    typingEffect(apiResponse, msg_Element, incomingMassage_div);
+    if (!res.ok) throw new error(data.error.contents);
+  } catch (error) {
     console.log(error);
   }
 };
@@ -150,7 +155,7 @@ const handle_userMassage = (value) => {
   value = " ";
   const msg_content = `<div class="massage-text"></div>`;
   const outgoingMassage_div = create_msgElement(msg_content, "user");
-  outgoingMassage_div.querySelector(".massage-text").textContent =user_data.massage;
+  outgoingMassage_div.querySelector(".massage-text").textContent = user_data.massage;
   chat.appendChild(outgoingMassage_div);
   scroll_By();
   setTimeout(() => {
@@ -166,7 +171,7 @@ const handle_userMassage = (value) => {
     const incomingMassage_div = create_msgElement(msg_content, "bot");
     chat.appendChild(incomingMassage_div);
     generate_reponse(incomingMassage_div);
-    
+
     scroll_By();
   }, 1000);
 };
@@ -236,7 +241,35 @@ startButton.addEventListener("click", () => {
     poptxt.classList.add("hide");
   }, 4000);
 });
+//Handeling File
+fileinput.addEventListener("change", () => {
+  const file = fileinput.files[0];
+  if (!file) return
 
+  const reader = new FileReader();
+  reader.onload = (e) => {
+
+    userImg.src = e.target.result;
+    userImg.classList.remove("hide");
+    fileBox.classList.add("uploaded");
+    document.querySelector("#file-uploader").classList.add("hide")
+    const baseStr = e.target.result.split(",")[1]
+    user_data.file = {
+      data: baseStr,
+      mime_type: file.type
+    }
+    fileinput.value = "";
+  }
+  reader.readAsDataURL(file)
+})
+
+document.getElementById("file-uploader").addEventListener("click", () => fileinput.click())
+document.querySelector(".cancel-Upload").addEventListener("click", () => {
+  user_data.file = {}
+  fileBox.classList.remove("uploaded");
+  document.querySelector("#file-uploader").classList.remove("hide");
+  userImg.classList.add("hide");
+})
 //Gsap-cdn
 
 function breakText() {
@@ -273,29 +306,29 @@ gsap.from("h1 .right", {
   stagger: -0.15,
 });
 let inpcontainer = document.querySelector(".InputContainer")
-gsap.from(inpcontainer,{
-  y:20,
-  opacity:0,
-  duration:0.8,
-  delay:0.5,
+gsap.from(inpcontainer, {
+  y: 20,
+  opacity: 0,
+  duration: 0.8,
+  delay: 0.5,
   stagger: 0.15,
 })
-gsap.from(newChat,{
-  x:20,
-  opacity:0,
-  duration:0.9,
-  delay:0.5,
-  stagger:0.15,
+gsap.from(newChat, {
+  x: 20,
+  opacity: 0,
+  duration: 0.9,
+  delay: 0.5,
+  stagger: 0.15,
 })
 
 //typing
- setTimeout(() =>{
+setTimeout(() => {
 
-   var typed = new Typed(".sentences", {
-     strings: ["I am a LLM","Where Knoladge Begins", "Created By Google","Coded By Md Jahid","See Some Quotes.","Be Yourself Everyone Else is Already Taken","The Hardest Choices Require The Strongest Wills","The Toughest Climbs Have The Best Views"],
-     typeSpeed:150,
-     backSpeed:70,
-     loop:true,
-    })
+  var typed = new Typed(".sentences", {
+    strings: ["I am a LLM", "Where Knoladge Begins", "Created By Google", "Coded By Md Jahid", "See Some Quotes.", "Be Yourself Everyone Else is Already Taken", "The Hardest Choices Require The Strongest Wills", "The Toughest Climbs Have The Best Views"],
+    typeSpeed: 150,
+    backSpeed: 70,
+    loop: true,
+  })
 
-},3000);
+}, 3000);
