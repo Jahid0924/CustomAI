@@ -16,14 +16,13 @@ let fileinput = document.querySelector("#file-input");
 let fileBox = document.querySelector(".file-uploader-box");
 let userImg = fileBox.querySelector("img");
 //media quary
-const mediaQuery = window.matchMedia("(max-width: 500px)");
-
+const mediaQuery = window.matchMedia("(max-width: 600px)");
 function handleScreenChange(e) {
   if (e.matches) {
-    // Screen is less than or equal to 768px
+    // Screen is less than or equal to 500px
     sidebar.style.width = "0px";
     Closebtn.classList.add("hide");
-    menuOpen2.classList.remove("hide")
+    menuOpen2.classList.remove("hide");
     menuOpen2.addEventListener("click", () => {
       cancel.classList.remove("hide");
       menuOpen2.classList.add("hide");
@@ -127,9 +126,8 @@ const generate_reponse = async (incomingMassage_div) => {
           parts: [
             {
               text: user_data.massage,
-            }, ...(user_data.file.data ? [{ inline_data: user_data.file }] :
-              []
-            )
+            },
+            ...(user_data.file && user_data.file.data ? [{ inline_data: user_data.file }] : []) // Add a check for user_data.file existence
           ],
         },
       ],
@@ -185,6 +183,7 @@ btn.addEventListener("click", () => {
   Sentence.remove();
   let cursor = document.querySelector(".typed-cursor");
   cursor.remove();
+  btn.style.transform  = "rotate(360deg)"
 });
 
 function addPrompt(inpval) {

@@ -189,6 +189,9 @@ h1 {
   color: rgb(19, 19, 19);
   font-size: 13.4px;
 }
+.Search:focus{
+  box-shadow: 0px 0px 3.5px rgb(22, 162, 238);
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -389,6 +392,7 @@ p {
   transition-duration: 0.3s;
   overflow: hidden;
   position: relative;
+  transition-duration: 0.4s;
 }
 
 #voice {
@@ -478,7 +482,7 @@ input::placeholder {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .sentences {
     height: auto;
     font-size: 3rem;
@@ -486,26 +490,34 @@ input::placeholder {
   }
 
   .main {
-    width: 95%;
+    width: 100%;
   }
 
   .InputContainer {
-    height: 50px;
-    width: 95%;
+    height: 55px;
+    width: 100%;
+    margin: 4px;
   }
 
   .Search {
-    height: 30px;
+    height: 40px;
   }
 
   .button {
-    height: 30px;
-    width: 30px;
+    height: 32px;
+    width: 32px;
     margin-left: 5px;
+  }
+  .file-uploader-box{
+    height: 45px;
+    width: 45px;
   }
 
   .Search {
-    width: 75%;
+    width: 72%;
+  }
+  img{
+    margin-left: 5px;
   }
 
   .chat-body .bot .massage-text {
@@ -513,7 +525,7 @@ input::placeholder {
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 2.8em;
   }
 }
 
