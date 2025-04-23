@@ -30,6 +30,7 @@ function handleScreenChange(e) {
       sidebar.style.transition = "300ms ease-in-out";
       sidebar.style.zIndex = "2";
       chatHistory.style.marginLeft = "5px";
+      sidebar.style.borderLeft  = "2px solid rgb(62 69 75)";
     })
 
     cancel.addEventListener("click", () => {
@@ -37,6 +38,7 @@ function handleScreenChange(e) {
       menuOpen2.classList.remove("hide");
       sidebar.style.width = "0px";
       sidebar.style.transition = "300ms ease-in-out";
+      sidebar.style.border = "none";
 
     })
   } else {
@@ -51,7 +53,6 @@ handleScreenChange(mediaQuery);
 // Listen for changes
 mediaQuery.addEventListener("change", handleScreenChange);
 
-// sidebar.style.width = "15%";
 
 Closebtn.addEventListener("click", () => {
   let botreponse = document.querySelector(".bot");
@@ -151,7 +152,7 @@ const generate_reponse = async (incomingMassage_div) => {
 const handle_userMassage = (value) => {
   user_data.massage = value.trim();
   value = " ";
-  const msg_content = `<div class="massage-text"></div>`;
+  const msg_content = `<div class="massage-text"></div>`
   const outgoingMassage_div = create_msgElement(msg_content, "user");
   outgoingMassage_div.querySelector(".massage-text").textContent = user_data.massage;
   chat.appendChild(outgoingMassage_div);
@@ -171,6 +172,7 @@ const handle_userMassage = (value) => {
     generate_reponse(incomingMassage_div);
 
     scroll_By();
+
   }, 1000);
 };
 btn.addEventListener("click", () => {
@@ -247,7 +249,6 @@ fileinput.addEventListener("change", () => {
 
   const reader = new FileReader();
   reader.onload = (e) => {
-
     userImg.src = e.target.result;
     userImg.classList.remove("hide");
     fileBox.classList.add("uploaded");
@@ -255,7 +256,7 @@ fileinput.addEventListener("change", () => {
     const baseStr = e.target.result.split(",")[1]
     user_data.file = {
       data: baseStr,
-      mime_type: file.type
+      mime_type: file.type,
     }
     fileinput.value = "";
   }
