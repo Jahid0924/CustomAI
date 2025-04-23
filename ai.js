@@ -30,7 +30,6 @@ function handleScreenChange(e) {
       sidebar.style.transition = "300ms ease-in-out";
       sidebar.style.zIndex = "2";
       chatHistory.style.marginLeft = "5px";
-      sidebar.style.borderLeft  = "2px solid rgb(62 69 75)";
     })
 
     cancel.addEventListener("click", () => {
@@ -38,7 +37,6 @@ function handleScreenChange(e) {
       menuOpen2.classList.remove("hide");
       sidebar.style.width = "0px";
       sidebar.style.transition = "300ms ease-in-out";
-      sidebar.style.border = "none";
 
     })
   } else {
