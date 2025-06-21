@@ -320,10 +320,11 @@ gsap.from(newChat, {
 })
 
 //typing
+let username = prompt("Enter Your Name: ");
 setTimeout(() => {
 
   var typed = new Typed(".sentences", {
-    strings: ["I am a LLM", "Where Knoladge Begins", "Created By Google", "Coded By Md Jahid", "See Some Quotes.", "Be Yourself Everyone Else is Already Taken", "The Hardest Choices Require The Strongest Wills", "The Toughest Climbs Have The Best Views"],
+    strings: [`Hii ${username}`,"I am a LLM", "Where Knoladge Begins", "Created By Google", "Coded By Md Jahid", "See Some Quotes.", "Be Yourself Everyone Else is Already Taken", "The Hardest Choices Require The Strongest Wills", "The Toughest Climbs Have The Best Views"],
     typeSpeed: 150,
     backSpeed: 70,
     loop: true,
